@@ -20,15 +20,37 @@ markerList.forEach(marker => {
     marker.style = "fill:"+ getColor(getGDPLevel(GDP))
 })
 
+const levelList = document.querySelectorAll(".my-legend ul.legend-labels li span");
+levelList.forEach(level =>{
+    level.addEventListener("mouseover", (ev)=>{
+        level.closest("li").style="background-color: #222222; color:white"
+        markerList.forEach(marker => {
+            let GDP = marker.dataset.gdp;
+            if (getGDPLevel(GDP) == level.getAttribute("value")) {
+                marker.style.strokeWidth="4"
+            }
+        })
+    })
+    level.addEventListener("mouseout", (ev)=>{
+        level.closest("li").style="background-color: white; color:#222222"
+        markerList.forEach(marker => {
+            let GDP = marker.dataset.gdp;
+            if (getGDPLevel(GDP) == level.getAttribute("value")){
+                marker.style.strokeWidth="1.5"
+            }
+        })
+    })
+})
+
 function getColor(level) {
     
     return  level == 0 ? "#eacc00" :
             level == 1 ? "#eaee55" :
             level == 2 ? "#eaff87" :
-            level == 3 ? "rgb(100, 200, 0)" :
-            level == 4 ? "rgb(60, 160, 0)" :
-            level == 5 ? "rgb(40, 110, 0)" :
-            level == 6 ? "rgb(0, 70, 0)" :
+            level == 3 ? "#64c800" :
+            level == 4 ? "#3ca000" :
+            level == 5 ? "#286e00" :
+            level == 6 ? "#004600" :
                          "gray"
 }
 
