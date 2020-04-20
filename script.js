@@ -44,13 +44,13 @@ levelList.forEach(level =>{
 
 function getColor(level) {
     
-    return  level == 0 ? "#eacc00" :
-            level == 1 ? "#eaee55" :
-            level == 2 ? "#eaff87" :
-            level == 3 ? "#64c800" :
-            level == 4 ? "#3ca000" :
-            level == 5 ? "#286e00" :
-            level == 6 ? "#004600" :
+    return  level == 0 ? "url(#gradient0)":
+            level == 1 ? "url(#gradient1)":
+            level == 2 ? "url(#gradient2)":
+            level == 3 ? "url(#gradient3)":
+            level == 4 ? "url(#gradient4)":
+            level == 5 ? "url(#gradient5)":
+            level == 6 ? "url(#gradient6)":
                          "gray"
 }
 
